@@ -17,10 +17,6 @@ module.exports = async (req, res, next) => {
 					console.log("User couldn't be logged in.");
 					throw new Error(error);
 				}
-				// const str = String(user.email);
-				// let role = "scholar";
-				// if(str[0] === "m" && str[1] === "c" && str[2] === "s")
-				// 	role = "mtech";
 				const body = { _id: user._id, email: user.email, fullName: user.fullName };
 
 				const token = jwt.sign({ user: body}, process.env.SECRET, {
